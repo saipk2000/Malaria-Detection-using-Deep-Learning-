@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Image</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center; /* Center horizontally */
+            align-items: center;
+            height: 100vh;
+            background-color: #fff; /* Dark background color */
+            color: #fff; /* Text color */
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 20px;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            background-color: #333; /* Container background color */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Box shadow for container */
+        }
+
+        h1, h2 {
+            margin-top: 20px; /* Top margin for headings */
+            font-weight: normal; /* Remove bold font weight */
+        }
+
+        .upload-form {
+            margin-bottom: 20px;
+        }
+
+        input[type="file"] {
+            display: none; /* Hide file input */
+        }
+
+        .file-label {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .file-label:hover {
+            background-color: #0056b3; /* Darker background color on hover */
+        }
+
+        .preview {
+            margin-top: 20px; /* Top margin for image preview */
+        }
+
+        .preview img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            margin: 0 auto; /* Center horizontally */
+        }
+
+        .access-link {
+            display: block;
+            margin-top: 20px; /* Top margin for access link */
+            color: #007bff; /* Link color */
+            text-decoration: none; /* Remove underline from link */
+            transition: color 0.3s; /* Smooth transition for link color */
+        }
+
+        .access-link:hover {
+            color: #0056b3; /* Darker link color on hover */
+        }
+
+        .button-container {
+            margin-top: 20px; /* Top margin for button container */
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-right: 10px;
+            background-color: #28a745;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #218838; /* Darker background color on hover */
+        }
+
+    </style>
+    <script>
+        function previewImage(event) {
+            var reader = new FileReader();
+            reader.onload = function() {
+                var imgPreview = document.getElementById('img-preview');
+                imgPreview.src = reader.result;
+                imgPreview.style.display = 'block'; // Show the image preview
+            }
+            reader.readAsDataURL(event.target.files[0]);
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>MALARIA PARASITE DETECTION</h1>
+        <h2>Upload an Image</h2>
+        <form method="POST" enctype="multipart/form-data" class="upload-form">
+            <input type="file" name="file" id="file" onchange="previewImage(event)" accept="image/*">
+            <label for="file" class="file-label">Choose a file</label>
+            <input type="submit" value="Upload" class="button">
+        </form>
+        <div class="preview">
+            <h2>Preview:</h2>
+            <img id="img-preview" src="" alt="Image Preview" style="display: none;"> <!-- Initially hidden -->
+        </div>
+        <div class="button-container">
+            <a href="/graph" class="access-link">View Graph</a>
+        </div>
+    </div>
+</body>
+</html>
