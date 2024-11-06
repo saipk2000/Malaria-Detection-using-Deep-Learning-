@@ -14,15 +14,6 @@ National Library of Medicine (NLM)
 Kaggle Malaria Dataset
 Ensure you download the dataset and place it in the appropriate directory before running the model training script.
 
-Installation
-Clone the repository:
-bash
-Copy code
-git clone https://github.com/yourusername/malaria-diagnosis-cnn.git
-Navigate to the project directory:
-bash
-Copy code
-cd malaria-diagnosis-cnn
 Install the required Python libraries:
 bash
 Copy code
